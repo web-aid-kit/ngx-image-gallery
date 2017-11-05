@@ -132,8 +132,9 @@ export class AppComponent implements OnInit {
 }
 ```
 
-### interfaces
+### Interfaces
 ```ts
+// gallery configuration
 export interface GALLERY_CONF {
   imageBorderRadius?: string; // css border radius of image (default 3px)
   imageOffset?: string; // add gap between image and it's container (default 20px)
@@ -144,6 +145,7 @@ export interface GALLERY_CONF {
   showThumbnails?: boolean; // show thumbnails (default true)
 }
 
+// gallery image
 export interface GALLERY_IMAGE {
   url: string; // url of the image
   thumbnailUrl?: string; // thumbnail url (recommended), if not present, gallery will use `url` property to get thumbnail image.
@@ -155,3 +157,6 @@ export interface GALLERY_IMAGE {
 ```
 
 > All properties ending with `?` are optional.
+
+# Copyrights
+Integrate or build upon it for free in your personal or commercial projects. Don't republish, redistribute or sell "as-is". We would appreciate if you contact us at `thatisuday@gmail.com` (if you are a business, institution or organization) so that we can mention your name in **users list** on this page.
