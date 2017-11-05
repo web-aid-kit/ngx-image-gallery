@@ -1,0 +1,74 @@
+<!-- images and image information container -->
+<div class="galleria">
+  <!-- images -->
+  <div class="images-container" (swiperight)="prev()" (swipeleft)="next()" *ngIf="!loading">
+    <div class="image" *ngFor="let image of images; let i = index;" [class.active]="i == activeImageIndex" 
+    [ngStyle]="{top: conf.imageOffset, bottom: conf.imageOffset}">
+      <img *ngIf="i == activeImageIndex" [src]="image.url" [alt]="image.altText || ''" [style.borderRadius]="conf.imageBorderRadius"/>
+    </div>
+  </div>
+
+  <!-- info and thumbnails -->
+  <div class="info-container" *ngIf="!loading">
+    <div class="title" 
+    *ngIf="conf.showImageTitle && activeImage && activeImage.title"
+    [style.paddingBottom]="conf.showThumbnails ? '0px' : '30px'"
+    >{{ activeImage.title }}</div>
+
+    <div #thumbnails class="thumbnails" *ngIf="conf.showThumbnails">
+      <div class="thumbnails-scroller" [style.marginLeft]="thumbnailsScrollerLeftMargin">
+        <div class="thumbnail" 
+        *ngFor="let image of images; let i = index;" 
+        [class.active]="i == activeImageIndex" 
+        [style.backgroundImage]="'url(' + (image.thumbnailUrl || image.url) + ')'"
+        [style.margin]="thumbnailMargin"
+        (click)="setActiveImage(i)">
+          <div class="feedback"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- loading animation -->
+  <div class="loading-animation" *ngIf="(images.length == 0) || loading">
+    <svg  version="1.1" id="L3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
+      <circle fill="none" stroke="#fff" stroke-width="4" cx="50" cy="50" r="44" style="opacity:0.5;"/>
+      <circle fill="#4caf50" stroke="#eee" stroke-width="3" cx="8" cy="54" r="6">
+        <animateTransform
+        attributeName="transform"
+        dur="2s"
+        type="rotate"
+        from="0 50 48"
+        to="360 50 52"
+        repeatCount="indefinite" />
+
+        <animate 
+        attributeName="fill" 
+        begin="1s" 
+        dur="16s" 
+        values ="#4caf50; #cddc39; #ff9800; #f44336; #e91e63; #ff5722; #ffeb3b; #4caf50"
+        repeatCount="indefinite" /> 
+      </circle>
+    </svg>
+  </div>
+</div>
+
+
+<!-- gallery controls -->
+<div class="control arrow left" *ngIf="(images.length > 1) && !loading" [class.disabled]="onFirstImage" (click)="prev()"></div>
+<div class="control arrow right" *ngIf="(images.length > 1) && !loading" [class.disabled]="onLastImage" (click)="next()"></div>
+
+<div class="control right-top">
+  <a class="ext-url" *ngIf="conf.showExtUrlControl && activeImage && activeImage.extUrl && !loading" [href]="activeImage.extUrl" [target]="activeImage.extUrlTarget || '_blank'">
+    <div class="feedback"></div>
+  </a>
+  <div class="close" *ngIf="conf.showCloseControl" (click)="close()">
+    <div class="feedback"></div>
+  </div>
+</div>
+
+<div class="control left-top">
+  <div class="delete-img" *ngIf="conf.showDeleteControl && !loading" (click)="deleteImage(activeImageIndex)">
+    <div class="feedback"></div>
+  </div>
+</div>

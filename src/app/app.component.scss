@@ -1,0 +1,21 @@
+:host{
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 100%;
+
+	>.control-center{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-size: cover;
+		background-image: url(https://images.pexels.com/photos/303473/pexels-photo-303473.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb);
+	}
+}

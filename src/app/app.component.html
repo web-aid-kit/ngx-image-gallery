@@ -1,0 +1,13 @@
+<ngx-image-gallery 
+[images]="images" 
+[conf]="conf"
+(onOpen)="galleryOpened($event)"
+(onClose)="galleryClosed()"
+(onImageChange)="galleryImageChanged($event)"
+(onDelete)="deleteImage($event)"
+></ngx-image-gallery>
+
+<div class="control-center">
+	<h1>ngx-image-gallery</h1>
+	<button (click)="openGallery()">Click to Open Gallery</button>
+</div>
