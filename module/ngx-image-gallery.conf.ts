@@ -6,7 +6,6 @@ export interface GALLERY_CONF {
 	showExtUrlControl?: boolean;
 	showImageTitle?: boolean;
 	showThumbnails?: boolean;
-	thumbnailsLength?: number;
 }
 
 export interface GALLERY_IMAGE {

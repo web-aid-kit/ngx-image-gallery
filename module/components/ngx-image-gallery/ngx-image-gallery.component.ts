@@ -18,8 +18,7 @@ const DEFAULT_CONF: GALLERY_CONF = {
 	showCloseControl: true,
 	showExtUrlControl: true,
 	showImageTitle: true,
-	showThumbnails: true,
-  thumbnailsLength: 6
+	showThumbnails: true
 };
 
 @Component({
