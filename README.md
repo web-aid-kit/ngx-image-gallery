@@ -1,6 +1,8 @@
 # ngx-image-gallery
 Probably the best Angular 4+ modal image gallery. Angular upgrade for ng-image-gallery.
 
+![preview](https://i.imgur.com/1gGxBLd.jpg)
+
 [![npm](https://img.shields.io/npm/dt/ngx-image-gallery.svg?style=flat-square)](https://www.npmjs.com/package/ngx-image-gallery)
 [![npm](https://img.shields.io/npm/v/ngx-image-gallery.svg?style=flat-square)](https://www.npmjs.com/package/ngx-image-gallery)
 [![David](https://img.shields.io/david/thatisuday/ngx-image-gallery.svg?style=flat-square)](https://www.npmjs.com/package/ngx-image-gallery)
@@ -144,10 +146,10 @@ export interface GALLERY_CONF {
   showImageTitle?: boolean; // show image title text (default true)
   showThumbnails?: boolean; // show thumbnails (default true)
   closeOnEsc?: boolean; // close gallery on `Esc` button press (default true)
-	reactToKeyboard?: boolean; // change image on keyboard arrow press (default true)
-	reactToMouseWheel?: boolean; // change image on mouse wheel scroll (default true)
-	reactToRightClick?: boolean; // disable right click on gallery (default false)
-	thumbnailSize?: number; // thumbnail size (default 30)
+  reactToKeyboard?: boolean; // change image on keyboard arrow press (default true)
+  reactToMouseWheel?: boolean; // change image on mouse wheel scroll (default true)
+  reactToRightClick?: boolean; // disable right click on gallery (default false)
+  thumbnailSize?: number; // thumbnail size (default 30)
 }
 
 // gallery image
