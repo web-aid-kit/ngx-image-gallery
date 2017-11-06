@@ -241,7 +241,10 @@ export class NgxImageGalleryComponent implements OnInit, OnChanges {
     // when gallery images changes
     if(changes.images && changes.images.firstChange == false) {
       this.images = changes.images.currentValue;
-      this.activateImage(0);
+      
+      if(this.images.length){
+        this.activateImage(0);
+      }
     }
     
   }
