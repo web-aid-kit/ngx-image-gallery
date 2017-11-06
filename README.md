@@ -138,11 +138,16 @@ export class AppComponent implements OnInit {
 export interface GALLERY_CONF {
   imageBorderRadius?: string; // css border radius of image (default 3px)
   imageOffset?: string; // add gap between image and it's container (default 20px)
-  showDeleteControl?: boolean; // show delete icon (default false)
-  showCloseControl?: boolean; // show close icon (default true)
-  showExtUrlControl?: boolean; // show external url icon (default true)
+  showDeleteControl?: boolean; // show image delete icon (default false)
+  showCloseControl?: boolean; // show gallery close icon (default true)
+  showExtUrlControl?: boolean; // show image external url icon (default true)
   showImageTitle?: boolean; // show image title text (default true)
   showThumbnails?: boolean; // show thumbnails (default true)
+  closeOnEsc?: boolean; // close gallery on `Esc` button press (default true)
+	reactToKeyboard?: boolean; // change image on keyboard arrow press (default true)
+	reactToMouseWheel?: boolean; // change image on mouse wheel scroll (default true)
+	reactToRightClick?: boolean; // disable right click on gallery (default false)
+	thumbnailSize?: number; // thumbnail size (default 30)
 }
 
 // gallery image
@@ -157,6 +162,17 @@ export interface GALLERY_IMAGE {
 ```
 
 > All properties ending with `?` are optional.
+
+# Dynamic Update
+You can update gallery images `images` and gallery configuration `conf` anytime you want even when gallery is opened but due to Angular's change detection restrictions you must assign these variable to new value instead of changing internal properties as mentioned below. 
+
+```ts
+// change images
+this.images = this.images.contact([...]);
+
+// change conf
+this.conf = {...};
+```
 
 # Copyrights
 Integrate or build upon it for free in your personal or commercial projects. Don't republish, redistribute or sell "as-is". We would appreciate if you contact us at `thatisuday@gmail.com` (if you are a business, institution or organization) so that we can mention your name in **users list** on this page.

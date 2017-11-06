@@ -18,7 +18,12 @@ const DEFAULT_CONF: GALLERY_CONF = {
 	showCloseControl: true,
 	showExtUrlControl: true,
 	showImageTitle: true,
-	showThumbnails: true
+	showThumbnails: true,
+  closeOnEsc: true,
+  reactToKeyboard: true,
+	reactToMouseWheel: true,
+  reactToRightClick: false,
+  thumbnailSize: 30
 };
 
 @Component({
@@ -58,11 +63,6 @@ export class NgxImageGalleryComponent implements OnInit, OnChanges {
   thumbnailMargin: string = '0px 8px';
   thumbnailsScrollerLeftMargin: string = '0px';
 
-  // set gallery configuration
-  setGalleryConf(conf: GALLERY_CONF) {
-    this.conf = assign(DEFAULT_CONF, conf);
-  }
-
   // active image
   get activeImage(): GALLERY_IMAGE {
     return this.images[this.activeImageIndex];
@@ -83,13 +83,13 @@ export class NgxImageGalleryComponent implements OnInit, OnChanges {
     let thumbnailsContainerWidth = this.thumbnailsElem.nativeElement.offsetWidth;
 
     let thumbnailMargin = 16;
-    let thumbnailSize = thumbnailMargin + 30; // 30px thumbnail size
+    let thumbnailSize = thumbnailMargin + this.conf.thumbnailSize;
     let thumbnailsInView = Math.floor(thumbnailsContainerWidth / thumbnailSize);
     let extraSpaceInThumbnailsContainer = thumbnailsContainerWidth - (thumbnailsInView * thumbnailSize);
     let extraMargin = extraSpaceInThumbnailsContainer / thumbnailsInView;
 
     let newThumbnailMargin = thumbnailMargin + extraMargin;
-    let newThumbnailSize = newThumbnailMargin + 30;
+    let newThumbnailSize = newThumbnailMargin + this.conf.thumbnailSize;
 
     let relativePositionOfActiveImageThumbnailToScroller = thumbnailsInView - (thumbnailsInView - this.activeImageIndex);
     let thumbnailsScrollerLeftMargin: any;
@@ -116,29 +116,45 @@ export class NgxImageGalleryComponent implements OnInit, OnChanges {
     };
   }
 
+  // set gallery configuration
+  private setGalleryConf(conf: GALLERY_CONF) {
+    this.conf = assign(DEFAULT_CONF, conf);
+  }
+
   // load image and return promise
   private loadImage(index: number): Promise<any> {
-    return new Promise((resolve, reject) => {
-      this.loading = true;
+    const galleryImage: GALLERY_IMAGE = this.images[index];
 
-      const galleryImage: GALLERY_IMAGE = this.images[index];
-      let image = new Image();
-      image.src = galleryImage.url;
+    // check if image is cached
+    if(galleryImage._cached){
+      return Promise.resolve(index);
+    }
+    else{
+      return new Promise((resolve, reject) => {
+        this.loading = true;
+        
+        let image = new Image();
+        image.src = galleryImage.url;
 
-      image.onload = () => {
-        this.loading = false;
-        resolve(index);
-      };
+        image.onload = () => {
+          this.loading = false;
+          galleryImage._cached = true;
+          resolve(index);
+        };
 
-      image.onerror = (error) => {
-        this.loading = false;
-        reject(error);
-      };
-    });
+        image.onerror = (error) => {
+          this.loading = false;
+          reject(error);
+        };
+      });
+    }
   }
 
   // activate image (set active image)
   private activateImage(imageIndex: number) {
+    // prevent loading if already loading
+    if(this.loading) return false;
+
     // emit event
     this.onImageChange.emit(imageIndex);
 
@@ -148,36 +164,48 @@ export class NgxImageGalleryComponent implements OnInit, OnChanges {
 
       // scroll thumbnails
       setTimeout(() => {
-        this.resizeThumbnails();
-        this.scrollThumbnails();
+        this.fitThumbnails();
+        setTimeout(() => this.scrollThumbnails(), 600);
       });
     })
     .catch(error => console.warn(error));
   }
 
-  // resize thumbnails to perfectly fit viewport
-  private resizeThumbnails = debounce(() => {
+  // adjust thumbnail margin to perfectly fit viewport
+  private fitThumbnails = debounce(() => {
+    // if thumbnails not visible, return false
+    if(this.conf.showThumbnails == false) return false;
+
     let thumbnailParams = this.thumbnailsRenderParams;
     this.thumbnailMargin = '0 ' + (thumbnailParams.newThumbnailMargin/2) + 'px';
   }, 300);
 
   // scroll thumbnails to perfectly position active image thumbnail in viewport
   private scrollThumbnails() {
+    // if thumbnails not visible, return false
+    if(this.conf.showThumbnails == false) return false;
+    
     let thumbnailParams = this.thumbnailsRenderParams;
     this.thumbnailsScrollerLeftMargin = thumbnailParams.thumbnailsScrollerLeftMargin;
   }
 
+  // debounced prev
+  private debouncedPrev = debounce(() => this.prev(), 300, {'leading': true, 'trailing': false});
+
+  // debounced next
+  private debouncedNext = debounce(() => this.next(), 300, {'leading': true, 'trailing': false});
+
   // keyboard event
   @HostListener('window:keydown', ['$event'])
   private onKeyboardInput(event: KeyboardEvent) {
-    if(this.opened && !this.loading) {
+    if(this.conf.reactToKeyboard && this.opened && !this.loading) {
       if(KEY_CODES[event.keyCode] == 'RIGHT'){
         this.next();
       }
       else if(KEY_CODES[event.keyCode] == 'LEFT'){
         this.prev();
       }
-      else if(KEY_CODES[event.keyCode] == 'ESC'){
+      else if((KEY_CODES[event.keyCode] == 'ESC') && this.conf.closeOnEsc){
         this.close();
       }
     }
@@ -187,8 +215,8 @@ export class NgxImageGalleryComponent implements OnInit, OnChanges {
   @HostListener('window:resize', ['$event'])
   private onWindowResize(event: Event) {
     if(this.opened && !this.loading) {
-      this.resizeThumbnails();
-      this.scrollThumbnails();
+      this.fitThumbnails();
+      setTimeout(() => this.scrollThumbnails(), 600);
     }
   }
 
@@ -205,7 +233,6 @@ export class NgxImageGalleryComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-
     // when gallery configuration changes
     if(changes.conf && changes.conf.firstChange == false) {
       this.setGalleryConf(changes.conf.currentValue);
@@ -268,6 +295,26 @@ export class NgxImageGalleryComponent implements OnInit, OnChanges {
   // delete image
   deleteImage(index: number) {
     this.onDelete.emit(index);
+  }
+
+  // mouse wheel up (prev image)
+  mouseWheelUp() {
+    if(this.conf.reactToMouseWheel) {
+      this.debouncedPrev();
+    }
+  }
+
+  // mouse wheel down (next image)
+  mouseWheelDown() {
+    if(this.conf.reactToMouseWheel) {
+      this.debouncedNext();
+    }
+  }
+
+  // right click on image
+  rightClickOnImage(event: Event) {
+    event.stopPropagation();
+    return this.conf.reactToRightClick;
   }
 
 }

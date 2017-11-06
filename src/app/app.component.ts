@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgxImageGalleryComponent, GALLERY_IMAGE, GALLERY_CONF } from "../../index";
+import { NgForm } from "@angular/forms";
+import _ from 'lodash';
 
 @Component({
   selector: 'app-root',
@@ -11,16 +13,17 @@ export class AppComponent implements OnInit {
   
   images: GALLERY_IMAGE[] = [
     {
+      url: "https://images.pexels.com/photos/669006/pexels-photo-669006.jpeg?w=1260", 
+      altText: 'two-woman-standing-on-the-ground-and-staring-at-the-mountain', 
+      extUrl: 'https://www.pexels.com/photo/two-woman-standing-on-the-ground-and-staring-at-the-mountain-669006/',
+      title: 'two-woman-standing-on-the-ground-and-staring-at-the-mountain', 
+      thumbnailUrl: "https://images.pexels.com/photos/669006/pexels-photo-669006.jpeg?w=60"
+    },
+    {
       url: "https://images.pexels.com/photos/669013/pexels-photo-669013.jpeg?w=1260", 
       altText: 'woman-in-black-blazer-holding-blue-cup', 
       title: 'woman-in-black-blazer-holding-blue-cup',
       thumbnailUrl: "https://images.pexels.com/photos/669013/pexels-photo-669013.jpeg?w=60"
-    },
-    {
-      url: "https://images.pexels.com/photos/669006/pexels-photo-669006.jpeg?w=1260", 
-      altText: 'two-woman-standing-on-the-ground-and-staring-at-the-mountain', 
-      extUrl: 'https://www.pexels.com/photo/two-woman-standing-on-the-ground-and-staring-at-the-mountain-669006/',
-      thumbnailUrl: "https://images.pexels.com/photos/669006/pexels-photo-669006.jpeg?w=60"
     },
     {
       url: "https://images.pexels.com/photos/630833/pexels-photo-630833.jpeg?w=1260", 
@@ -88,24 +91,34 @@ export class AppComponent implements OnInit {
   ];
 
   conf: GALLERY_CONF = {
-    imageOffset: '10px',
-    showDeleteControl: true,
+    imageBorderRadius: '3px',
+    imageOffset: '20px',
+    showDeleteControl: false,
     showCloseControl: true,
-    showThumbnails: true,
+    showExtUrlControl: true,
     showImageTitle: true,
+    showThumbnails: true,
+    closeOnEsc: true,
+    reactToKeyboard: true,
+    reactToMouseWheel: true,
+    reactToRightClick: false,
+    thumbnailSize: 30
   };
+
+  range = _.range;
 
   constructor(){}
 
   ngOnInit() {}
 
   // open gallery
-  openGallery(index: number = 0) {
-    this.ngxImageGallery.open(index);
+  openGallery(form: NgForm) {
+    this.conf = form.value;
+    this.ngxImageGallery.open(0);
 
     setTimeout(() => {
-      this.images.push(
-        {
+      this.images = _.concat(this.images, 
+        [{
           url: "https://images.pexels.com/photos/556961/pexels-photo-556961.jpeg?w=1260", 
           altText: 'beach-beach-chair-daylight-footsteps', 
           extUrl: 'https://www.pexels.com/photo/beach-beach-chair-daylight-footsteps-556961/',
@@ -123,7 +136,7 @@ export class AppComponent implements OnInit {
           extUrl: 'https://www.pexels.com/photo/antique-classic-finger-hands-529924/',
           title: 'antique-classic-finger-hands',
           thumbnailUrl: "https://images.pexels.com/photos/529924/pexels-photo-529924.jpeg?w=60"
-        }
+        }]
       );
     }, 5000);
   }

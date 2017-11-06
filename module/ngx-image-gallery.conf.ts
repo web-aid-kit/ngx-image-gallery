@@ -6,9 +6,15 @@ export interface GALLERY_CONF {
 	showExtUrlControl?: boolean;
 	showImageTitle?: boolean;
 	showThumbnails?: boolean;
+	closeOnEsc?: boolean;
+	reactToKeyboard?: boolean;
+	reactToMouseWheel?: boolean;
+	reactToRightClick?: boolean;
+	thumbnailSize?: number;
 }
 
 export interface GALLERY_IMAGE {
+	_cached?: boolean;
 	url: string;
 	thumbnailUrl?: string;
 	altText?: string;

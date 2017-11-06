@@ -151,6 +151,24 @@
 					@include no-select;
 				}
 			}
+
+			>.loading-animation{
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				z-index: 100;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				>svg{
+					flex: none;
+					width: 100px;
+					height: 100px;
+				}
+			}
 		}
 
 		>.info-container{
@@ -184,8 +202,6 @@
 
 					>.thumbnail{
 						display: inline-block;
-						width: 30px;
-						height: 30px;
 						border-radius: 100%;
 						vertical-align: middle;
 						background-color: #999;
@@ -224,24 +240,6 @@
 						}
 					}
 				}
-			}
-		}
-
-		>.loading-animation{
-			position: absolute;
-			left: 0;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			z-index: 100;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-
-			>svg{
-				flex: none;
-				width: 100px;
-				height: 100px;
 			}
 		}
 	}
