@@ -151,7 +151,7 @@ export interface GALLERY_CONF {
   reactToRightClick?: boolean; // disable right click on gallery (default false)
   thumbnailSize?: number; // thumbnail size (default 30)
   backdropColor?: string; // gallery backdrop (background) color (default rgba(13,13,14,0.85))
-	inline?: boolean; // thumbnail size (default false)
+  inline?: boolean; // thumbnail size (default false)
 }
 
 // gallery image
@@ -167,7 +167,7 @@ export interface GALLERY_IMAGE {
 
 > All properties ending with `?` are optional.
 
-## inline
+# Make gallery inline
 You can make gallery inline like a carousel by setting `conf.inline` to true but make sure to change `conf.backdropColor` as well if you need white backdtop color. Also `width` and `height` of the gallery can be adjusted by manually applying styles with `!important` flag on gallery element.
 
 # Dynamic Update
