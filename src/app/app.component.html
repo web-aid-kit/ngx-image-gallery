@@ -25,6 +25,12 @@
 		</select>
 	</div>
 
+	<!-- backdropColor -->
+	<div class="field">
+		<label for="">conf.backdropColor (gallery backdrop (background) color)</label>
+		<input type="text" name="backdropColor" [ngModel]="conf.backdropColor">
+	</div>
+
 	<!-- showDeleteControl -->
 	<div class="field">
 		<label for="">conf.showDeleteControl (show delete image icon)</label>
@@ -115,6 +121,16 @@
 		</div>
 	</div>
 
+	<!-- inline -->
+	<div class="field">
+		<label for="">conf.inline (make gallery inline)</label>
+
+		<div class="inline">
+			<label><input type="radio" name="inline" [ngModel]="conf.inline" [value]="true"> true</label>
+			<label><input type="radio" name="inline" [ngModel]="conf.inline" [value]="false"> false</label>
+		</div>
+	</div>
+
 	<!-- ===================================================================================== -->
 	<div class="button-container">
 		<button type="submit" class="ui small green button">Launch Gallery</button>
@@ -122,6 +138,7 @@
 </form>
 
 
+<div class="ui divider"></div>
 
 
 <!-- Gallery component -->

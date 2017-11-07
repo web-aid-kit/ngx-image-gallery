@@ -93,7 +93,7 @@ export class AppComponent implements OnInit {
   conf: GALLERY_CONF = {
     imageBorderRadius: '3px',
     imageOffset: '20px',
-    showDeleteControl: false,
+    showDeleteControl: true,
     showCloseControl: true,
     showExtUrlControl: true,
     showImageTitle: true,
@@ -102,7 +102,9 @@ export class AppComponent implements OnInit {
     reactToKeyboard: true,
     reactToMouseWheel: true,
     reactToRightClick: false,
-    thumbnailSize: 30
+    thumbnailSize: 30,
+    backdropColor: 'rgba(13,13,14,0.85)',
+    inline: false
   };
 
   range = _.range;
@@ -115,30 +117,6 @@ export class AppComponent implements OnInit {
   openGallery(form: NgForm) {
     this.conf = form.value;
     this.ngxImageGallery.open(0);
-
-    setTimeout(() => {
-      this.images = _.concat(this.images, 
-        [{
-          url: "https://images.pexels.com/photos/556961/pexels-photo-556961.jpeg?w=1260", 
-          altText: 'beach-beach-chair-daylight-footsteps', 
-          extUrl: 'https://www.pexels.com/photo/beach-beach-chair-daylight-footsteps-556961/',
-          title: 'beach-beach-chair-daylight-footsteps',
-          thumbnailUrl: "https://images.pexels.com/photos/556961/pexels-photo-556961.jpeg?w=60"
-        },
-        {
-          url: "https://images.pexels.com/photos/551654/pexels-photo-551654.jpeg?w=1260", 
-          altText: 'adult-adventure-backpack-backpacker', 
-          extUrl: 'https://www.pexels.com/photo/adult-adventure-backpack-backpacker-551654/',
-          thumbnailUrl: "https://images.pexels.com/photos/551654/pexels-photo-551654.jpeg?w=60"
-        },
-        {
-          url: "https://images.pexels.com/photos/529924/pexels-photo-529924.jpeg?w=1260", 
-          extUrl: 'https://www.pexels.com/photo/antique-classic-finger-hands-529924/',
-          title: 'antique-classic-finger-hands',
-          thumbnailUrl: "https://images.pexels.com/photos/529924/pexels-photo-529924.jpeg?w=60"
-        }]
-      );
-    }, 5000);
   }
 
   // callback on gallery opened

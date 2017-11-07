@@ -11,6 +11,8 @@ export interface GALLERY_CONF {
 	reactToMouseWheel?: boolean;
 	reactToRightClick?: boolean;
 	thumbnailSize?: number;
+	backdropColor?: string;
+	inline?: boolean;
 }
 
 export interface GALLERY_IMAGE {

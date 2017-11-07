@@ -1,7 +1,7 @@
 {
   "name": "ngx-image-gallery",
-  "version": "1.0.6",
-  "description": "Probably the best Angular 4+ modal image gallery. Angular upgrade for ng-image-gallery.",
+  "version": "1.0.7",
+  "description": "Probably the best Angular 4+ modal & inline image gallery. Angular upgrade for ng-image-gallery.",
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,7 +21,7 @@
     "url": "https://github.com/thatisuday/ngx-image-gallery/issues"
   },
   "homepage": "https://github.com/thatisuday/ngx-image-gallery#readme",
-    "dependencies": {
+  "dependencies": {
     "@angular/animations": "^4.4.1",
     "@angular/cdk": "^2.0.0-beta.10",
     "@angular/common": "^4.0.0",

@@ -23,7 +23,9 @@ const DEFAULT_CONF: GALLERY_CONF = {
   reactToKeyboard: true,
 	reactToMouseWheel: true,
   reactToRightClick: false,
-  thumbnailSize: 30
+  thumbnailSize: 30,
+  backdropColor: 'rgba(13,13,14,0.85)',
+  inline: true
 };
 
 @Component({
@@ -230,12 +232,30 @@ export class NgxImageGalleryComponent implements OnInit, OnChanges {
   ngOnInit() {
     // create final gallery configuration
     this.setGalleryConf(this.conf);
+
+    // apply backdrop color
+    this.renderer.setStyle(this.galleryElem.nativeElement, 'background-color', this.conf.backdropColor);
+
+    // gallery inline class and auto open
+    if(this.conf.inline) {
+      this.renderer.addClass(this.galleryElem.nativeElement, 'inline');
+      this.open(0);
+    }
   }
 
   ngOnChanges(changes: SimpleChanges) {
     // when gallery configuration changes
     if(changes.conf && changes.conf.firstChange == false) {
       this.setGalleryConf(changes.conf.currentValue);
+
+      // apply backdrop color
+      this.renderer.setStyle(this.galleryElem.nativeElement, 'background-color', this.conf.backdropColor);
+
+      // gallery inline class and auto open
+      if((changes.conf.previousValue.inline != true) && this.conf.inline) {
+        this.renderer.addClass(this.galleryElem.nativeElement, 'inline');
+        this.open(0);
+      }
     }
 
     // when gallery images changes

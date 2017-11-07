@@ -58,20 +58,20 @@
 
 
 <!-- gallery controls -->
-<div class="control arrow left" *ngIf="(images.length > 1) && !loading" [class.disabled]="onFirstImage" (click)="prev()"></div>
-<div class="control arrow right" *ngIf="(images.length > 1) && !loading" [class.disabled]="onLastImage" (click)="next()"></div>
+<div class="control arrow left" *ngIf="(images.length > 1) && !loading" [class.dark]="conf.inline" [class.disabled]="onFirstImage" (click)="prev()"></div>
+<div class="control arrow right" *ngIf="(images.length > 1) && !loading" [class.dark]="conf.inline" [class.disabled]="onLastImage" (click)="next()"></div>
 
 <div class="control right-top">
-  <a class="ext-url" *ngIf="conf.showExtUrlControl && activeImage && activeImage.extUrl && !loading" [href]="activeImage.extUrl" [target]="activeImage.extUrlTarget || '_blank'">
+  <a class="ext-url" [class.dark]="conf.inline" *ngIf="conf.showExtUrlControl && activeImage && activeImage.extUrl && !loading" [href]="activeImage.extUrl" [target]="activeImage.extUrlTarget || '_blank'">
     <div class="feedback"></div>
   </a>
-  <div class="close" *ngIf="conf.showCloseControl" (click)="close()">
+  <div class="close" [class.dark]="conf.inline" *ngIf="conf.showCloseControl" (click)="close()">
     <div class="feedback"></div>
   </div>
 </div>
 
 <div class="control left-top">
-  <div class="delete-img" *ngIf="conf.showDeleteControl && !loading" (click)="deleteImage(activeImageIndex)">
+  <div class="delete-img" [class.dark]="conf.inline" *ngIf="conf.showDeleteControl && !loading" (click)="deleteImage(activeImageIndex)">
     <div class="feedback"></div>
   </div>
 </div>
