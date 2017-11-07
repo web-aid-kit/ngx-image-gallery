@@ -1,5 +1,5 @@
 # ngx-image-gallery
-Probably the best Angular 4+ modal image gallery. Angular upgrade for ng-image-gallery.
+Probably the best Angular 4+ modal and inline image gallery. Angular upgrade for ng-image-gallery.
 
 ![preview](https://i.imgur.com/1gGxBLd.jpg)
 
