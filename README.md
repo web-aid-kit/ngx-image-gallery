@@ -151,7 +151,7 @@ export interface GALLERY_CONF {
   reactToRightClick?: boolean; // disable right click on gallery (default false)
   thumbnailSize?: number; // thumbnail size (default 30)
   backdropColor?: string; // gallery backdrop (background) color (default rgba(13,13,14,0.85))
-  inline?: boolean; // thumbnail size (default false)
+  inline?: boolean; // make gallery inline (default false)
 }
 
 // gallery image

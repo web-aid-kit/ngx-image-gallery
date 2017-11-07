@@ -25,7 +25,7 @@ const DEFAULT_CONF: GALLERY_CONF = {
   reactToRightClick: false,
   thumbnailSize: 30,
   backdropColor: 'rgba(13,13,14,0.85)',
-  inline: true
+  inline: false
 };
 
 @Component({
