@@ -168,7 +168,7 @@ export interface GALLERY_IMAGE {
 > All properties ending with `?` are optional.
 
 # Make gallery inline
-You can make gallery inline like a carousel by setting `conf.inline` to true but make sure to change `conf.backdropColor` as well if you need white backdtop color. Also `width` and `height` of the gallery can be adjusted by manually applying styles with `!important` flag on gallery element.
+You can make gallery **inline** like a carousel by setting `conf.inline` to `true` but make sure to change `conf.backdropColor` as well if you need white backdrop color. Also `width` and `height` of the gallery can be adjusted by manually applying css styles with `!important` flag on gallery element.
 
 # Dynamic Update
 You can update gallery images `images` and gallery configuration `conf` anytime you want even when gallery is opened but due to Angular's change detection restrictions you must assign these variable to new value instead of changing internal properties as mentioned below. 
