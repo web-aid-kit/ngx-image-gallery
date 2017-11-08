@@ -25,7 +25,8 @@ const DEFAULT_CONF: GALLERY_CONF = {
   reactToRightClick: false,
   thumbnailSize: 30,
   backdropColor: 'rgba(13,13,14,0.85)',
-  inline: false
+  inline: false,
+  showArrows: true
 };
 
 @Component({
@@ -192,10 +193,10 @@ export class NgxImageGalleryComponent implements OnInit, OnChanges {
   }
 
   // debounced prev
-  private debouncedPrev = debounce(() => this.prev(), 300, {'leading': true, 'trailing': false});
+  private debouncedPrev = debounce(() => this.prev(), 100, {'leading': true, 'trailing': false});
 
   // debounced next
-  private debouncedNext = debounce(() => this.next(), 300, {'leading': true, 'trailing': false});
+  private debouncedNext = debounce(() => this.next(), 100, {'leading': true, 'trailing': false});
 
   // keyboard event
   @HostListener('window:keydown', ['$event'])
@@ -323,14 +324,14 @@ export class NgxImageGalleryComponent implements OnInit, OnChanges {
   // mouse wheel up (prev image)
   mouseWheelUp() {
     if(this.conf.reactToMouseWheel) {
-      this.debouncedPrev();
+      this.debouncedNext();
     }
   }
 
   // mouse wheel down (next image)
   mouseWheelDown() {
     if(this.conf.reactToMouseWheel) {
-      this.debouncedNext();
+      this.debouncedPrev();
     }
   }
 

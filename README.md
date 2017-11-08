@@ -152,6 +152,7 @@ export interface GALLERY_CONF {
   thumbnailSize?: number; // thumbnail size (default 30)
   backdropColor?: string; // gallery backdrop (background) color (default rgba(13,13,14,0.85))
   inline?: boolean; // make gallery inline (default false)
+  showArrows?: boolean; // show prev / next arrows (default true)
 }
 
 // gallery image

@@ -4,6 +4,7 @@ export interface GALLERY_CONF {
 	showDeleteControl?: boolean;
 	showCloseControl?: boolean;
 	showExtUrlControl?: boolean;
+	showArrows?: boolean;
 	showImageTitle?: boolean;
 	showThumbnails?: boolean;
 	closeOnEsc?: boolean;

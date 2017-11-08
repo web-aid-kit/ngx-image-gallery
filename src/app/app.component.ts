@@ -104,7 +104,8 @@ export class AppComponent implements OnInit {
     reactToRightClick: false,
     thumbnailSize: 30,
     backdropColor: 'rgba(13,13,14,0.85)',
-    inline: false
+    inline: false,
+    showArrows: true
   };
 
   range = _.range;

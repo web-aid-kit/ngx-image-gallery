@@ -131,6 +131,16 @@
 		</div>
 	</div>
 
+	<!-- showArrows -->
+	<div class="field">
+		<label for="">conf.showArrows (show prev / next arrows)</label>
+
+		<div class="inline">
+			<label><input type="radio" name="showArrows" [ngModel]="conf.showArrows" [value]="true"> true</label>
+			<label><input type="radio" name="showArrows" [ngModel]="conf.showArrows" [value]="false"> false</label>
+		</div>
+	</div>
+
 	<!-- ===================================================================================== -->
 	<div class="button-container">
 		<button type="submit" class="ui small green button">Launch Gallery</button>
