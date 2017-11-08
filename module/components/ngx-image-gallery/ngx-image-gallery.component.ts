@@ -167,7 +167,7 @@ export class NgxImageGalleryComponent implements OnInit, OnChanges {
       // scroll thumbnails
       setTimeout(() => {
         this.fitThumbnails();
-        setTimeout(() => this.scrollThumbnails(), 600);
+        setTimeout(() => this.scrollThumbnails(), 300);
       });
     })
     .catch(error => console.warn(error));
@@ -218,7 +218,7 @@ export class NgxImageGalleryComponent implements OnInit, OnChanges {
   private onWindowResize(event: Event) {
     if(this.opened && !this.loading) {
       this.fitThumbnails();
-      setTimeout(() => this.scrollThumbnails(), 600);
+      setTimeout(() => this.scrollThumbnails(), 300);
     }
   }
 
