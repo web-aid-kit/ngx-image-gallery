@@ -37,6 +37,7 @@ export class AppModule { }
 [conf]="conf"
 (onOpen)="galleryOpened($event)"
 (onClose)="galleryClosed()"
+(onImageClicked)="galleryImageClicked($event)"
 (onImageChange)="galleryImageChanged($event)"
 (onDelete)="deleteImage($event)"
 ></ngx-image-gallery>
@@ -122,6 +123,11 @@ export class AppComponent implements OnInit {
     console.info('Gallery closed.');
   }
 
+  // callback on gallery image clicked
+  galleryImageClicked(index) {
+    console.info('Gallery image clicked with index ', index);
+  }
+  
   // callback on gallery image changed
   galleryImageChanged(index) {
     console.info('Gallery image changed to index ', index);
