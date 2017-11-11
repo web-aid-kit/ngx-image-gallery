@@ -27,6 +27,7 @@ const KEY_CODES = {
 const DEFAULT_CONF: GALLERY_CONF = {
     imageBorderRadius: '3px',
     imageOffset: '20px',
+    imagePointer: false,
     showDeleteControl: false,
     showCloseControl: true,
     showExtUrlControl: true,

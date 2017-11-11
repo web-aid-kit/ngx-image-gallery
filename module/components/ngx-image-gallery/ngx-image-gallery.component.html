@@ -8,6 +8,7 @@
              [class.active]="!loading && (i == activeImageIndex)"
              [ngStyle]="{top: conf.imageOffset, bottom: conf.imageOffset}">
             <img *ngIf="i == activeImageIndex" [src]="image.url" [alt]="image.altText || ''"
+                 [style.cursor]="conf.imagePointer?  'pointer':'default'"
                  [style.borderRadius]="conf.imageBorderRadius" (click)="onImageClick.next(activeImageIndex)"/>
         </div>
 
