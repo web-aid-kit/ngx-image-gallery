@@ -183,7 +183,7 @@ You can update gallery images `images` and gallery configuration `conf` anytime 
 
 ```ts
 // change images
-this.images = this.images.contact([...]);
+this.images = this.images.concat([...]);
 
 // change conf
 this.conf = {...};
