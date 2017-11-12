@@ -12,6 +12,7 @@ import {
     SimpleChanges,
     ViewChild
 } from '@angular/core';
+
 import {assign, findIndex, debounce} from 'lodash';
 
 import {GALLERY_CONF, GALLERY_IMAGE} from './../../ngx-image-gallery.conf';
@@ -64,7 +65,7 @@ export class NgxImageGalleryComponent implements OnInit, OnChanges {
     @Output() onClose = new EventEmitter();
     @Output() onDelete = new EventEmitter();
     @Output() onImageChange = new EventEmitter();
-    @Output() onImageClick = new EventEmitter<number>();
+    @Output() onImageClicked = new EventEmitter();
 
     // thumbnails container
     @ViewChild('thumbnails') thumbnailsElem: ElementRef;
@@ -347,6 +348,11 @@ export class NgxImageGalleryComponent implements OnInit, OnChanges {
         if (this.conf.reactToMouseWheel) {
             this.debouncedPrev();
         }
+    }
+
+    // click on image
+    clickOnImage(index: number) {
+        this.onImageClicked.emit(index);
     }
 
     // right click on image

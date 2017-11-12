@@ -1,6 +1,6 @@
 {
   "name": "ngx-image-gallery",
-  "version": "1.1.2",
+  "version": "1.1.4",
   "description": "Probably the best Angular 4+ modal & inline image gallery. Angular upgrade for ng-image-gallery.",
   "main": "index.ts",
   "scripts": {
