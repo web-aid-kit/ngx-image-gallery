@@ -1,7 +1,8 @@
 export interface GALLERY_CONF {
 	imageBorderRadius?: string;
-	imageOffset?: string;
-	showDeleteControl?: boolean;
+    imageOffset?: string;
+    imagePointer? :boolean;
+    showDeleteControl?: boolean;
 	showCloseControl?: boolean;
 	showExtUrlControl?: boolean;
 	showArrows?: boolean;

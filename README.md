@@ -37,6 +37,7 @@ export class AppModule { }
 [conf]="conf"
 (onOpen)="galleryOpened($event)"
 (onClose)="galleryClosed()"
+(onImageClicked)="galleryImageClicked($event)"
 (onImageChange)="galleryImageChanged($event)"
 (onDelete)="deleteImage($event)"
 ></ngx-image-gallery>
@@ -122,6 +123,11 @@ export class AppComponent implements OnInit {
     console.info('Gallery closed.');
   }
 
+  // callback on gallery image clicked
+  galleryImageClicked(index) {
+    console.info('Gallery image clicked with index ', index);
+  }
+  
   // callback on gallery image changed
   galleryImageChanged(index) {
     console.info('Gallery image changed to index ', index);
@@ -140,6 +146,7 @@ export class AppComponent implements OnInit {
 export interface GALLERY_CONF {
   imageBorderRadius?: string; // css border radius of image (default 3px)
   imageOffset?: string; // add gap between image and it's container (default 20px)
+  imagePointer? :boolean; // show a pointer on image, should be true when handling onImageClick event (default false)
   showDeleteControl?: boolean; // show image delete icon (default false)
   showCloseControl?: boolean; // show gallery close icon (default true)
   showExtUrlControl?: boolean; // show image external url icon (default true)
