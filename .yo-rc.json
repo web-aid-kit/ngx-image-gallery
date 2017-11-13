@@ -1,0 +1,7 @@
+{
+  "generator-angular2-library": {
+    "promptValues": {
+      "gitRepositoryUrl": "git+https://github.com/thatisuday/ngx-image-gallery.git"
+    }
+  }
+}
