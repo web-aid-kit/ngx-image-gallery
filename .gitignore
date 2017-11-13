@@ -28,8 +28,8 @@ Desktop.ini
 # Ngc generated files
 **/*.ngfactory.ts
 
-# Build files
-#dist/*
+# Build files (dist should be ignored if you push on npm only your build/dist)
+dist/*
 
 # Playground tmp files
 .playground
