@@ -1,3 +1,3 @@
-export { GALLERY_CONF, GALLERY_IMAGE } from './module/ngx-image-gallery.conf';
-export { NgxImageGalleryModule } from './module/ngx-image-gallery.module';
-export { NgxImageGalleryComponent } from './module/components/ngx-image-gallery/ngx-image-gallery.component';
+export { GALLERY_CONF, GALLERY_IMAGE } from './src/ngx-image-gallery.conf';
+export { NgxImageGalleryModule } from './src/index';
+export { NgxImageGalleryComponent } from './src/components/ngx-image-gallery/ngx-image-gallery.component';

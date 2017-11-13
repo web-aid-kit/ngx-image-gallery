@@ -14,7 +14,7 @@ import {
 } from '@angular/core';
 import {assign, findIndex, debounce} from 'lodash';
 
-import {GALLERY_CONF, GALLERY_IMAGE} from './../../ngx-image-gallery.conf';
+import {GALLERY_CONF, GALLERY_IMAGE} from '../../ngx-image-gallery.conf';
 
 // key codes to react
 const KEY_CODES = {
