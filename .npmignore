@@ -32,3 +32,9 @@ Desktop.ini
 # Library files
 src/*
 build/*
+/playground/
+!/tools/
+!/bs-config.json
+!/.travis.yml
+!/.yo-rc.json
+/gulpfile.js
