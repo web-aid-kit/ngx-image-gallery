@@ -1,0 +1,28 @@
+{
+  "name": "ngx-image-gallery",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thatisuday/ngx-image-gallery.git"
+  },
+  "author": {
+    "name": "Anthony Nahas",
+    "email": "anthony.na@hotmail.de"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "git+https://github.com/thatisuday/ngx-image-gallery.git/issues"
+  },
+  "main": "ngx-image-gallery.umd.js",
+  "module": "ngx-image-gallery.js",
+  "jsnext:main": "ngx-image-gallery.js",
+  "typings": "ngx-image-gallery.d.ts",
+  "peerDependencies": {
+    "@angular/core": "^4.0.0",
+    "rxjs": "^5.1.0",
+    "zone.js": "^0.8.4"
+  }
+}
