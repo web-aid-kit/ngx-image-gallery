@@ -13,6 +13,7 @@
     "lite": "lite-server",
     "playground:build": "tsc -p playground -w",
     "playground": "concurrently \"npm run build:watch\" \"npm run playground:build\" \"npm run lite\"",
+    "serve": "cd demo && ng serve --open",
     "test": "tsc && karma start"
   },
   "repository": {
@@ -33,6 +34,7 @@
     "url": "git+https://github.com/thatisuday/ngx-image-gallery.git/issues"
   },
   "devDependencies": {
+    "@angular/cli": "^1.5.2",
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
     "@angular/compiler-cli": "^4.0.0",
