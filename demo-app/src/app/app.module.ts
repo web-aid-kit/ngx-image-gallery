@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import {NgxImageGalleryModule} from "../../../dist/ngx-image-gallery";
 
 
 @NgModule({
@@ -10,7 +11,8 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    NgxImageGalleryModule
   ],
   providers: [],
   bootstrap: [AppComponent]
