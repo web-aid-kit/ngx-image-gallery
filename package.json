@@ -13,7 +13,7 @@
     "lite": "lite-server",
     "playground:build": "tsc -p playground -w",
     "playground": "concurrently \"npm run build:watch\" \"npm run playground:build\" \"npm run lite\"",
-    "serve": "cd demo && ng serve --open",
+    "serve": "cd demo-app && ng serve --open",
     "test": "tsc && karma start"
   },
   "repository": {
@@ -81,6 +81,7 @@
   "jsnext:main": "dist/ngx-image-gallery.js",
   "typings": "dist/ngx-image-gallery.d.ts",
   "dependencies": {
+    "hammerjs": "^2.0.8",
     "lodash": "^4.17.4"
   }
 }
