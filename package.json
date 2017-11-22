@@ -1,6 +1,6 @@
 {
   "name": "ngx-image-gallery",
-  "version": "1.2.0",
+  "version": "1.3.1",
   "description": "Probably the best Angular 4+ modal & inline image gallery. Angular upgrade for ng-image-gallery.",
   "scripts": {
     "build": "gulp build",
@@ -13,7 +13,9 @@
     "lite": "lite-server",
     "playground:build": "tsc -p playground -w",
     "playground": "concurrently \"npm run build:watch\" \"npm run playground:build\" \"npm run lite\"",
+    "install:demo": "cd demo-app && npm install",
     "serve": "cd demo-app && ng serve --open",
+    "demo": "npm run install:demo && npm run serve",
     "test": "tsc && karma start"
   },
   "repository": {
