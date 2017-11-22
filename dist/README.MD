@@ -8,6 +8,34 @@ Probably the best Angular 4+ modal and inline image gallery. Angular upgrade for
 [![David](https://img.shields.io/david/thatisuday/ngx-image-gallery.svg?style=flat-square)](https://www.npmjs.com/package/ngx-image-gallery)
 [![preview](https://img.shields.io/badge/preview-click_here-green.svg?style=flat-square)](https://thatisuday.github.io/ngx-image-gallery/dist/)
 
+## Prerequisites
+
+- Hammerjs (required for swipe) 
+```
+npm i -s hammerjs
+```
+
+Then import hammerjs into your project (tip: in you main.ts file), e.g:
+```
+import 'hammerjs';
+import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+import { AppModule } from './app/app.module';
+import { environment } from './environments/environment';
+
+if (environment.production) {
+    enableProdMode();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    platformBrowserDynamic().bootstrapModule(AppModule)
+        .catch(err => console.log(err));
+});
+
+```
+
+
 ## Install
 ```bash
 npm install --save ngx-image-gallery
