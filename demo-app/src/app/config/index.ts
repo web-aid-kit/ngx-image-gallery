@@ -1,5 +1,6 @@
 // gallery configuration
-import {GALLERY_CONF, GALLERY_IMAGE} from "../../../../dist/ngx-image-gallery.conf";
+
+import {GALLERY_CONF, GALLERY_IMAGE} from "ngx-image-gallery";
 
 export const DEMO_GALLERY_CONF_INLINE: GALLERY_CONF = {
   imageOffset: '0px',

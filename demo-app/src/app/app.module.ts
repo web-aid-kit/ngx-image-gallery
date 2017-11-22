@@ -1,9 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
 import { AppComponent } from './app.component';
-import {NgxImageGalleryModule} from "../../../dist/ngx-image-gallery";
+import {NgxImageGalleryModule} from "ngx-image-gallery";
 
 
 @NgModule({

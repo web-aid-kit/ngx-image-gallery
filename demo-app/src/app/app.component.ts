@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import {DEMO_GALLERY_CONF_INLINE, DEMO_GALLERY_IMAGE} from "./config";
-import {GALLERY_IMAGE} from "../../../dist/ngx-image-gallery.conf";
-import {GALLERY_CONF} from "../../../dist/ngx-image-gallery";
+import {GALLERY_CONF, GALLERY_IMAGE} from "ngx-image-gallery";
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.css']
 })
 export class AppComponent {
   title = 'Demo App';
