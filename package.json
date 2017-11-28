@@ -1,6 +1,6 @@
 {
   "name": "ngx-image-gallery",
-  "version": "1.2.0",
+  "version": "1.3.1",
   "description": "Probably the best Angular 4+ modal & inline image gallery. Angular upgrade for ng-image-gallery.",
   "scripts": {
     "build": "gulp build",
@@ -13,6 +13,9 @@
     "lite": "lite-server",
     "playground:build": "tsc -p playground -w",
     "playground": "concurrently \"npm run build:watch\" \"npm run playground:build\" \"npm run lite\"",
+    "install:demo": "cd demo-app && npm install",
+    "serve": "cd demo-app && ng serve --open",
+    "demo": "npm run install:demo && npm run serve",
     "test": "tsc && karma start"
   },
   "repository": {
@@ -33,6 +36,7 @@
     "url": "git+https://github.com/thatisuday/ngx-image-gallery.git/issues"
   },
   "devDependencies": {
+    "@angular/cli": "^1.5.2",
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
     "@angular/compiler-cli": "^4.0.0",
@@ -79,6 +83,7 @@
   "jsnext:main": "dist/ngx-image-gallery.js",
   "typings": "dist/ngx-image-gallery.d.ts",
   "dependencies": {
+    "hammerjs": "^2.0.8",
     "lodash": "^4.17.4"
   }
 }
