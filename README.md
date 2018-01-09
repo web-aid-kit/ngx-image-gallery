@@ -218,6 +218,7 @@ this.conf = {...};
 ```
 
 # Demo App
+![Demo App's Screenshot](./assets/screenshot_demo_app.png)
 + clone or fork this repo
 + run the demo app by running `npm run demo`
 + Finally, navigate to `http://localhost:4200/`
