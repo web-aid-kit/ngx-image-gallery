@@ -9,6 +9,8 @@ import {GALLERY_CONF, GALLERY_IMAGE, NgxImageGalleryComponent} from "ngx-image-g
 })
 export class AppComponent {
 
+  public showConf: boolean = true;
+
   @ViewChild('ngxImageGallery') ngxImageGallery: NgxImageGalleryComponent;
 
   title = 'Demo App';

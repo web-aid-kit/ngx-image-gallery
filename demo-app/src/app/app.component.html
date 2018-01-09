@@ -1,10 +1,11 @@
 <mat-toolbar color="primary">
-  <mat-icon style="padding-right: 1rem">menu</mat-icon>
+  <mat-icon style="padding-right: 1rem">photo</mat-icon>
   <span>ngx-image-gallery</span>
 
   <span class="fill-remaining"></span>
 
-  <mat-icon>code</mat-icon>
+  <!--todo-->
+  <mat-icon>info</mat-icon>
 </mat-toolbar>
 
 <div fxLayout="row"
@@ -28,7 +29,18 @@
         (onImageChange)="galleryImageChanged($event)"
         (onDelete)="deleteImage($event)">
       </ngx-image-gallery>
+
+      <mat-list *ngFor="let entry of ngxImageGallery.activeImage | keys">
+        <mat-list-item>
+          <code class="prettyprint">
+            {{entry.key}}: {{entry.value.toString()}}
+          </code>
+        </mat-list-item>
+      </mat-list>
     </mat-card-content>
+
+    <mat-card-footer>
+    </mat-card-footer>
 
     <mat-card-actions fxLayoutAlign="space-between center">
       <button color="accent" mat-raised-button (click)="prevImage()">Previous</button>
@@ -38,19 +50,23 @@
 
   <mat-card fxFlex="20" style="margin: 2rem">
     <mat-card-title-group>
-      <mat-card-title>Information</mat-card-title>
-      <mat-card-subtitle>Configuration</mat-card-subtitle>
+      <mat-card-title>Configuration</mat-card-title>
+      <mat-card-subtitle>Image Index:
+        <code class="prettyprint">
+          {{ngxImageGallery.activeImageIndex}}
+        </code>
+      </mat-card-subtitle>
     </mat-card-title-group>
+    <mat-card-content>
+      <mat-list *ngFor="let entry of conf | keys">
+        <mat-list-item>
+          <code class="prettyprint">
+            {{entry.key}}: {{entry.value}}
+          </code>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
   </mat-card>
-  <mat-card-content>
-    3
-    <mat-list>
-      <mat-list-item>
-        <p>test</p>
-      </mat-list-item>
-    </mat-list>
-  </mat-card-content>
-
 </div>
 
 

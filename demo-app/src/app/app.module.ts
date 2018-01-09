@@ -8,11 +8,13 @@ import {
   MatToolbarModule
 } from "@angular/material";
 import {FlexLayoutModule} from "@angular/flex-layout";
+import { KeysPipe } from './pipe/keys.pipe';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    KeysPipe
   ],
   imports: [
     BrowserModule,
