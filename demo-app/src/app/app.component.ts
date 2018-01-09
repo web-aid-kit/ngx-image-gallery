@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {DEMO_GALLERY_CONF_INLINE, DEMO_GALLERY_IMAGE} from "./config";
-import {GALLERY_CONF, GALLERY_IMAGE} from "ngx-image-gallery";
+import {GALLERY_CONF, GALLERY_IMAGE, NgxImageGalleryComponent} from "ngx-image-gallery";
 
 @Component({
   selector: 'app-root',
@@ -8,6 +8,9 @@ import {GALLERY_CONF, GALLERY_IMAGE} from "ngx-image-gallery";
   styleUrls: ['app.component.css']
 })
 export class AppComponent {
+
+  @ViewChild('ngxImageGallery') ngxImageGallery: NgxImageGalleryComponent;
+
   title = 'Demo App';
 
   // gallery configuration
@@ -35,12 +38,12 @@ export class AppComponent {
 
   // next image in gallery
   nextImage() {
-    // this.ngxImageGallery.next();
+    this.ngxImageGallery.next();
   }
 
   // prev image in gallery
   prevImage() {
-    // this.ngxImageGallery.prev();
+    this.ngxImageGallery.prev();
   }
 
   /**************************************************/
