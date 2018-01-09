@@ -38,3 +38,4 @@ build/*
 !/.yo-rc.json
 /gulpfile.js
 /demo-app/
+/assets/
