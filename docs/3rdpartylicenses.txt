@@ -67,11 +67,15 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
+ngx-image-gallery@1.3.0
+ISC
+ISC
+
 @angular/core@5.1.3
 MIT
 MIT
 
-@angular/platform-browser@5.1.3
+@angular/common@5.1.3
 MIT
 MIT
 
@@ -148,19 +152,3 @@ Files located in the node_modules and vendor directories are externally
 maintained libraries used by this software which have their own
 licenses; we recommend you read them, as their terms may differ from the
 terms above.
-
-ngx-choices@1.1.2
-MIT
-MIT
-
-ngx-image-gallery@1.3.0
-ISC
-ISC
-
-@angular/forms@5.1.3
-MIT
-MIT
-
-@angular/common@5.1.3
-MIT
-MIT

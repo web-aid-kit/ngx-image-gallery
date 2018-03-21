@@ -1,0 +1,165 @@
+<h1>
+	<a href="https://github.com/thatisuday/ngx-image-gallery">ngx-image-gallery</a>
+</h1>
+
+<form class="ui form" (ngSubmit)="openGallery(f)" #f="ngForm">
+	<!-- imageBorderRadius -->
+	<div class="field">
+		<label for="">conf.imageBorderRadius (css border radius of image)</label>
+		<select type="text" name="imageBorderRadius" [ngModel]="conf.imageBorderRadius">
+			<option *ngFor="let i of range(0,50)" [value]="i + 'px'">{{ i + 'px' }}</option>
+		</select>
+	</div>
+
+	<!-- imageOffset -->
+	<div class="field">
+		<label for="">conf.imageOffset (add gap between image and it's container)</label>
+		<select type="text" >
+			<option *ngFor="let i of range(0,50)" [value]="i + 'px'">{{ i + 'px' }}</option>
+		</select>
+	</div>
+
+	<!-- thumbnailSize -->
+	<div class="field">
+		<label for="">conf.thumbnailSize (thumbnail size)</label>
+		<select type="text" name="thumbnailSize" [ngModel]="conf.thumbnailSize">
+			<option *ngFor="let i of range(10,100)" [value]="i">{{ i }}</option>
+		</select>
+	</div>
+
+	<!-- backdropColor -->
+	<div class="field">
+		<label for="">conf.backdropColor (gallery backdrop (background) color)</label>
+		<input type="text" name="backdropColor" [ngModel]="conf.backdropColor">
+	</div>
+
+	<!-- showDeleteControl -->
+	<div class="field">
+		<label for="">conf.showDeleteControl (show delete image icon)</label>
+
+		<div class="inline">
+			<label><input type="radio" name="showDeleteControl" [ngModel]="conf.showDeleteControl" [value]="true"> true</label>
+			<label><input type="radio" name="showDeleteControl" [ngModel]="conf.showDeleteControl" [value]="false"> false</label>
+		</div>
+	</div>
+
+	<!-- showCloseControl -->
+	<div class="field">
+		<label for="">conf.showCloseControl (show close gallery icon)</label>
+
+		<div class="inline">
+			<label><input type="radio" name="showCloseControl" [ngModel]="conf.showCloseControl" [value]="true"> true</label>
+			<label><input type="radio" name="showCloseControl" [ngModel]="conf.showCloseControl" [value]="false"> false</label>
+		</div>
+	</div>
+
+	<!-- showExtUrlControl -->
+	<div class="field">
+		<label for="">conf.showExtUrlControl (show external url icon)</label>
+
+		<div class="inline">
+			<label><input type="radio" name="showExtUrlControl" [ngModel]="conf.showExtUrlControl" [value]="true"> true</label>
+			<label><input type="radio" name="showExtUrlControl" [ngModel]="conf.showExtUrlControl" [value]="false"> false</label>
+		</div>
+	</div>
+
+	<!-- showImageTitle -->
+	<div class="field">
+		<label for="">conf.showImageTitle (show image title text)</label>
+
+		<div class="inline">
+			<label><input type="radio" name="showImageTitle" [ngModel]="conf.showImageTitle" [value]="true"> true</label>
+			<label><input type="radio" name="showImageTitle" [ngModel]="conf.showImageTitle" [value]="false"> false</label>
+		</div>
+	</div>
+
+	<!-- showThumbnails -->
+	<div class="field">
+		<label for="">conf.showThumbnails (show thumbnails)</label>
+
+		<div class="inline">
+			<label><input type="radio" name="showThumbnails" [ngModel]="conf.showThumbnails" [value]="true"> true</label>
+			<label><input type="radio" name="showThumbnails" [ngModel]="conf.showThumbnails" [value]="false"> false</label>
+		</div>
+	</div>
+
+	<!-- closeOnEsc -->
+	<div class="field">
+		<label for="">conf.closeOnEsc (close gallery on `Esc` button press)</label>
+
+		<div class="inline">
+			<label><input type="radio" name="closeOnEsc" [ngModel]="conf.closeOnEsc" [value]="true"> true</label>
+			<label><input type="radio" name="closeOnEsc" [ngModel]="conf.closeOnEsc" [value]="false"> false</label>
+		</div>
+	</div>
+
+	<!-- reactToKeyboard -->
+	<div class="field">
+		<label for="">conf.reactToKeyboard (change image on keyboard arrow press)</label>
+
+		<div class="inline">
+			<label><input type="radio" name="reactToKeyboard" [ngModel]="conf.reactToKeyboard" [value]="true"> true</label>
+			<label><input type="radio" name="reactToKeyboard" [ngModel]="conf.reactToKeyboard" [value]="false"> false</label>
+		</div>
+	</div>
+
+	<!-- reactToMouseWheel -->
+	<div class="field">
+		<label for="">conf.reactToMouseWheel (change image on mouse wheel scroll)</label>
+
+		<div class="inline">
+			<label><input type="radio" name="reactToMouseWheel" [ngModel]="conf.reactToMouseWheel" [value]="true"> true</label>
+			<label><input type="radio" name="reactToMouseWheel" [ngModel]="conf.reactToMouseWheel" [value]="false"> false</label>
+		</div>
+	</div>
+
+	<!-- reactToRightClick -->
+	<div class="field">
+		<label for="">conf.reactToRightClick (disable right click on gallery)</label>
+
+		<div class="inline">
+			<label><input type="radio" name="reactToRightClick" [ngModel]="conf.reactToRightClick" [value]="true"> true</label>
+			<label><input type="radio" name="reactToRightClick" [ngModel]="conf.reactToRightClick" [value]="false"> false</label>
+		</div>
+	</div>
+
+	<!-- inline -->
+	<div class="field">
+		<label for="">conf.inline (make gallery inline)</label>
+
+		<div class="inline">
+			<label><input type="radio" name="inline" [ngModel]="conf.inline" [value]="true"> true</label>
+			<label><input type="radio" name="inline" [ngModel]="conf.inline" [value]="false"> false</label>
+		</div>
+	</div>
+
+	<!-- showArrows -->
+	<div class="field">
+		<label for="">conf.showArrows (show prev / next arrows)</label>
+
+		<div class="inline">
+			<label><input type="radio" name="showArrows" [ngModel]="conf.showArrows" [value]="true"> true</label>
+			<label><input type="radio" name="showArrows" [ngModel]="conf.showArrows" [value]="false"> false</label>
+		</div>
+	</div>
+
+	<!-- ===================================================================================== -->
+	<div class="button-container">
+		<button type="submit" class="btn btn-sm btn-primary">Launch Gallery</button>
+	</div>
+</form>
+
+
+<div class="ui divider"></div>
+
+
+<!-- Gallery component -->
+<ngx-image-gallery 
+[images]="images" 
+[conf]="conf"
+(onOpen)="galleryOpened($event)"
+(onClose)="galleryClosed()"
+(onImageChange)="galleryImageChanged($event)"
+(onImageClicked)="galleryImageClicked($event)"
+(onDelete)="deleteImage($event)"
+></ngx-image-gallery>

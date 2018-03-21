@@ -1,12 +1,12 @@
 # ngx-image-gallery
 Probably the best Angular 4+ modal and inline image gallery. Angular upgrade for ng-image-gallery.
 
-[![preview](https://i.imgur.com/1gGxBLd.jpg)](https://thatisuday.github.io/ngx-image-gallery/dist/)
+[![preview](https://i.imgur.com/1gGxBLd.jpg)](https://thatisuday.github.io)
 
 [![npm](https://img.shields.io/npm/dt/ngx-image-gallery.svg?style=flat-square)](https://www.npmjs.com/package/ngx-image-gallery)
 [![npm](https://img.shields.io/npm/v/ngx-image-gallery.svg?style=flat-square)](https://www.npmjs.com/package/ngx-image-gallery)
 [![David](https://img.shields.io/david/thatisuday/ngx-image-gallery.svg?style=flat-square)](https://www.npmjs.com/package/ngx-image-gallery)
-[![preview](https://img.shields.io/badge/preview-click_here-green.svg?style=flat-square)](https://thatisuday.github.io/ngx-image-gallery/dist/)
+[![preview](https://img.shields.io/badge/preview-click_here-green.svg?style=flat-square)](https://thatisuday.github.io/ngx-image-gallery)
 
 ## Prerequisites
 
@@ -216,6 +216,12 @@ this.images = this.images.concat([...]);
 // change conf
 this.conf = {...};
 ```
+
+# Demo App
+![Demo App's Screenshot](./assets/screenshot_demo_app.png)
++ clone or fork this repo
++ run the demo app by running `npm run demo`
++ Finally, navigate to `http://localhost:4200/`
 
 # Copyrights
 Integrate or build upon it for free in your personal or commercial projects. Don't republish, redistribute or sell "as-is". We would appreciate if you contact us at `thatisuday@gmail.com` (if you are a business, institution or organization) so that we can mention your name in **users list** on this page.

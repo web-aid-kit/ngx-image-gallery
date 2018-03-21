@@ -1,0 +1,37 @@
+:host{
+	display: block;
+	position: relative;
+	padding: 30px;
+
+	>h1{
+		text-align: center;
+	}
+
+	>.form{
+		input,
+		select{
+			border-radius: 0px !important;
+		}
+
+		>.field{
+			>.inline{
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				
+				>label{
+					margin-right: 20px;
+					cursor: pointer;
+				}
+			}
+		}
+
+		>.button-container{
+			margin-top: 20px;
+			
+			>.button{
+				border-radius: 0px;
+			}
+		}
+	}
+}
