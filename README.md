@@ -130,12 +130,12 @@ export class AppComponent implements OnInit {
 	
   // next image in gallery
   nextImage(index: number = 0) {
-    this.ngxImageGallery.next(index);
+    this.ngxImageGallery.next();
   }
 	
   // prev image in gallery
   prevImage(index: number = 0) {
-    this.ngxImageGallery.prev(index);
+    this.ngxImageGallery.prev();
   }
 	
   /**************************************************/
