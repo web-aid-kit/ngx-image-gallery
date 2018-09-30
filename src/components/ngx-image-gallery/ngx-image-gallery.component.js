@@ -145,8 +145,18 @@ var NgxImageGalleryComponent = (function () {
         }
         else {
             return new Promise(function (resolve, reject) {
+                var fileExtension = galleryImage.url.split('.').pop();
                 _this.loading = true;
-                var image = new Image();
+                var image;
+                if(fileExtension.toLowerCase() == 'jpeg' || fileExtension.toLowerCase() == 'jpg' || fileExtension.toLowerCase() == 'png' || fileExtension.toLowerCase() == 'png' || fileExtension.toLowerCase() == 'bmp' || fileExtension.toLowerCase() == 'gif')
+                {
+                    image = new Image();
+                }
+                else if(fileExtension.toLowerCase() == 'avi' || fileExtension.toLowerCase() == 'flv' || fileExtension.toLowerCase() == 'wmv' || fileExtension.toLowerCase() == 'mov' || fileExtension.toLowerCase() == 'mp4')
+                {
+                   image = document.createElement('video');
+                   image.autoplay = false;
+                }
                 image.src = galleryImage.url;
                 image.onload = function () {
                     _this.loading = false;
