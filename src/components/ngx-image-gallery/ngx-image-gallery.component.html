@@ -51,7 +51,7 @@
                      *ngFor="let image of images; let i = index;"
                      [class.active]="i == activeImageIndex"
 
-                     [ngStyle]="{'background-image': sanitizer.bypassSecurityTrustStyle('url(' + (image.thumbnailUrl || image.url) + ')') }"
+                     [style.backgroundImage]="sanitizer.bypassSecurityTrustStyle('url(' + (image.thumbnailUrl || image.url) + ')')"
 
                      [style.margin]="thumbnailMargin"
                      [style.width]="conf.thumbnailSize + 'px'"
