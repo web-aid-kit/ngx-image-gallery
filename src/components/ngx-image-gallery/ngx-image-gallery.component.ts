@@ -98,11 +98,6 @@ export class NgxImageGalleryComponent implements OnInit, OnChanges {
         return this.activeImageIndex == (this.images.length - 1);
     }
 
-    // Get thumbnail sanitized image
-    getThumbnailImage(image: GALLERY_IMAGE) {
-        return this.sanitizer.bypassSecurityTrustStyle(`url(${image.thumbnailUrl || image.url})`);
-    } 
-
     // get thumbnails viewport rendering parameters
     get thumbnailsRenderParams(): { thumbnailsInView: number, newThumbnailMargin: number, newThumbnailSize: number, thumbnailsScrollerLeftMargin: any } {
         let thumbnailsContainerWidth = this.thumbnailsElem.nativeElement.offsetWidth;
