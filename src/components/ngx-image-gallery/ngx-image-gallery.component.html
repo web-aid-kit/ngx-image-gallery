@@ -7,7 +7,7 @@
         <div class="image" *ngFor="let image of images; let i = index;"
              [class.active]="!loading && (i == activeImageIndex)"
              [ngStyle]="{top: conf.imageOffset, bottom: conf.imageOffset}">
-            <img *ngIf="i == activeImageIndex" [src]="image.url" [alt]="image.altText || ''"
+            <img *ngIf="i == activeImageIndex" [src]="sanitizer.bypassSecurityTrustUrl(image.url)" [alt]="image.altText || ''"
                  [style.cursor]="conf.imagePointer?  'pointer':'default'"
                  [style.borderRadius]="conf.imageBorderRadius" (click)="clickOnImage(activeImageIndex)"/>
         </div>
