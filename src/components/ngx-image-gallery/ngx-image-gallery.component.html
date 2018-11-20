@@ -50,7 +50,7 @@
                 <div class="thumbnail"
                      *ngFor="let image of images; let i = index;"
                      [class.active]="i == activeImageIndex"
-                     [style.backgroundImage]="'url(' + (image.thumbnailUrl || image.url) + ')'"
+                     [style.backgroundImage]="'url(' + sanitizer.bypassSecurityTrustUrl(image.thumbnailUrl || image.url) + ')'"
                      [style.margin]="thumbnailMargin"
                      [style.width]="conf.thumbnailSize + 'px'"
                      [style.height]="conf.thumbnailSize + 'px'"
