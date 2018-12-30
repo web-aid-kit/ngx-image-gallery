@@ -214,31 +214,6 @@ export class NgxImageGalleryComponent implements OnInit, OnChanges {
     // debounced next
     private debouncedNext = debounce(() => this.next(), 100, {'leading': true, 'trailing': false});
 
-    // keyboard event
-    @HostListener('window:keydown', ['$event'])
-    private onKeyboardInput(event: KeyboardEvent) {
-        if (this.conf.reactToKeyboard && this.opened && !this.loading) {
-            if (KEY_CODES[event.keyCode] == 'RIGHT') {
-                this.next();
-            }
-            else if (KEY_CODES[event.keyCode] == 'LEFT') {
-                this.prev();
-            }
-            else if ((KEY_CODES[event.keyCode] == 'ESC') && this.conf.closeOnEsc) {
-                this.close();
-            }
-        }
-    }
-
-    // window resize event
-    @HostListener('window:resize', ['$event'])
-    private onWindowResize(event: Event) {
-        if (this.opened && !this.loading) {
-            this.fitThumbnails();
-            setTimeout(() => this.scrollThumbnails(), 300);
-        }
-    }
-
     /***************************************************/
 
     constructor(private galleryElem: ElementRef,
@@ -283,6 +258,31 @@ export class NgxImageGalleryComponent implements OnInit, OnChanges {
             }
         }
 
+    }
+    
+    // keyboard event
+    @HostListener('window:keydown', ['$event'])
+    public onKeyboardInput(event: KeyboardEvent) {
+        if (this.conf.reactToKeyboard && this.opened && !this.loading) {
+            if (KEY_CODES[event.keyCode] == 'RIGHT') {
+                this.next();
+            }
+            else if (KEY_CODES[event.keyCode] == 'LEFT') {
+                this.prev();
+            }
+            else if ((KEY_CODES[event.keyCode] == 'ESC') && this.conf.closeOnEsc) {
+                this.close();
+            }
+        }
+    }
+
+    // window resize event
+    @HostListener('window:resize', ['$event'])
+    public onWindowResize(event: Event) {
+        if (this.opened && !this.loading) {
+            this.fitThumbnails();
+            setTimeout(() => this.scrollThumbnails(), 300);
+        }
     }
 
     /***************************************************/
