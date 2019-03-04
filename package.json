@@ -1,6 +1,6 @@
 {
-  "name": "ngx-image-gallery",
-  "version": "1.4.1",
+  "name": "@jitenderbadoni/ngx-image-video-gallary",
+  "version": "1.0.0",
   "description": "Probably the best Angular 4+ modal & inline image gallery. Angular upgrade for ng-image-gallery.",
   "scripts": {
     "build": "gulp build",
@@ -20,20 +20,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thatisuday/ngx-image-gallery.git"
+    "url": "git+https://github.com/jitenderbadoni/ngx-image-gallery.git"
   },
-  "author": {
-    "name": "Uday Hiwarale",
-    "email": "thatisuday@gmail.com"
-  },
+  "author": "Jitender Badoni <info@trimitrtechnologies.com>",
   "keywords": [
     "image",
     "gallery",
-    "angular"
+    "angular",
+    "vidoe"
   ],
   "license": "ISC",
   "bugs": {
-    "url": "git+https://github.com/thatisuday/ngx-image-gallery.git/issues"
+    "url": "git+https://github.com/jitenderbadoni/ngx-image-gallery.git/issues"
   },
   "devDependencies": {
     "@angular/cli": "^1.5.2",
@@ -85,5 +83,9 @@
   "dependencies": {
     "hammerjs": "^2.0.8",
     "lodash": "^4.17.4"
+  },
+  "homepage": "https://github.com/jitenderbadoni/ngx-image-gallery#readme",
+  "directories": {
+    "doc": "docs"
   }
 }

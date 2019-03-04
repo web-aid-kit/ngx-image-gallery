@@ -151,8 +151,21 @@ export class NgxImageGalleryComponent implements OnInit, OnChanges {
         else {
             return new Promise((resolve, reject) => {
                 this.loading = true;
+                let fileExtension = galleryImage.url.split('.').pop();
+                let image;
+                if(fileExtension.toLowerCase() == 'jpeg' || fileExtension.toLowerCase() == 'jpg' ||
+                fileExtension.toLowerCase() == 'png' ||
+                fileExtension.toLowerCase() == 'png' || fileExtension.toLowerCase() == 'bmp' ||
+                fileExtension.toLowerCase() == 'gif'){
+                    image = new Image();
 
-                let image = new Image();
+                }
+                else if(fileExtension.toLowerCase() == 'avi' || fileExtension.toLowerCase() == 'flv' || fileExtension.toLowerCase() == 'wmv' || fileExtension.toLowerCase() == 'mov' || fileExtension.toLowerCase() == 'mp4')
+                {
+                   image = document.createElement('video');
+                   image.autoplay = false;
+                }
+                
                 image.src = galleryImage.url;
 
                 image.onload = () => {
