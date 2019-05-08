@@ -1,3 +1,8 @@
+# Need maintainers
+Due to my hectic schedule, it is getting hard to maintain this repository. If anybody is interested to work on this project, please give a pull request to fix some critical issues and enhancements.
+
+---
+
 # ngx-image-gallery
 Probably the best Angular 4+ modal and inline image gallery. Angular upgrade for ng-image-gallery.
 
