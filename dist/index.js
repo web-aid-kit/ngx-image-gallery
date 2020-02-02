@@ -205,34 +205,6 @@ var NgxImageGalleryComponent = (function () {
         this.thumbnailsScrollerLeftMargin = thumbnailParams.thumbnailsScrollerLeftMargin;
     };
     /**
-     * @param {?} event
-     * @return {?}
-     */
-    NgxImageGalleryComponent.prototype.onKeyboardInput = function (event) {
-        if (this.conf.reactToKeyboard && this.opened && !this.loading) {
-            if (KEY_CODES[event.keyCode] == 'RIGHT') {
-                this.next();
-            }
-            else if (KEY_CODES[event.keyCode] == 'LEFT') {
-                this.prev();
-            }
-            else if ((KEY_CODES[event.keyCode] == 'ESC') && this.conf.closeOnEsc) {
-                this.close();
-            }
-        }
-    };
-    /**
-     * @param {?} event
-     * @return {?}
-     */
-    NgxImageGalleryComponent.prototype.onWindowResize = function (event) {
-        var _this = this;
-        if (this.opened && !this.loading) {
-            this.fitThumbnails();
-            setTimeout(function () { return _this.scrollThumbnails(); }, 300);
-        }
-    };
-    /**
      * @return {?}
      */
     NgxImageGalleryComponent.prototype.ngOnInit = function () {
@@ -268,6 +240,34 @@ var NgxImageGalleryComponent = (function () {
             if (this.images.length) {
                 this.activateImage(0);
             }
+        }
+    };
+    /**
+     * @param {?} event
+     * @return {?}
+     */
+    NgxImageGalleryComponent.prototype.onKeyboardInput = function (event) {
+        if (this.conf.reactToKeyboard && this.opened && !this.loading) {
+            if (KEY_CODES[event.keyCode] == 'RIGHT') {
+                this.next();
+            }
+            else if (KEY_CODES[event.keyCode] == 'LEFT') {
+                this.prev();
+            }
+            else if ((KEY_CODES[event.keyCode] == 'ESC') && this.conf.closeOnEsc) {
+                this.close();
+            }
+        }
+    };
+    /**
+     * @param {?} event
+     * @return {?}
+     */
+    NgxImageGalleryComponent.prototype.onWindowResize = function (event) {
+        var _this = this;
+        if (this.opened && !this.loading) {
+            this.fitThumbnails();
+            setTimeout(function () { return _this.scrollThumbnails(); }, 300);
         }
     };
     /**

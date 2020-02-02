@@ -35,12 +35,12 @@ export declare class NgxImageGalleryComponent implements OnInit, OnChanges {
     private scrollThumbnails();
     private debouncedPrev;
     private debouncedNext;
-    private onKeyboardInput(event);
-    private onWindowResize(event);
     /***************************************************/
     constructor(galleryElem: ElementRef, sanitizer: DomSanitizer, renderer: Renderer2);
     ngOnInit(): void;
     ngOnChanges(changes: SimpleChanges): void;
+    onKeyboardInput(event: KeyboardEvent): void;
+    onWindowResize(event: Event): void;
     /***************************************************/
     open(index?: number): void;
     close(): void;
