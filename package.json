@@ -3,7 +3,7 @@
   "version": "1.4.1",
   "description": "Probably the best Angular 4+ modal & inline image gallery. Angular upgrade for ng-image-gallery.",
   "scripts": {
-    "build": "gulp build",
+    "build": "gulp build && ngcc && ngcc -s dist/",
     "build:watch": "gulp",
     "docs": "npm run docs:build",
     "docs:build": "compodoc -p tsconfig.json -n ngx-image-gallery -d docs --hideGenerator",
