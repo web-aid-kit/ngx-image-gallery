@@ -8,31 +8,31 @@ export declare class NgxImageGalleryComponent implements OnInit, OnChanges {
     opened: boolean;
     conf: GALLERY_CONF;
     images: GALLERY_IMAGE[];
-    onOpen: EventEmitter<{}>;
-    onClose: EventEmitter<{}>;
-    onDelete: EventEmitter<{}>;
-    onImageChange: EventEmitter<{}>;
-    onImageClicked: EventEmitter<{}>;
+    onOpen: EventEmitter<any>;
+    onClose: EventEmitter<any>;
+    onDelete: EventEmitter<any>;
+    onImageChange: EventEmitter<any>;
+    onImageClicked: EventEmitter<any>;
     thumbnailsElem: ElementRef;
     /***************************************************/
     loading: boolean;
     activeImageIndex: number;
     thumbnailMargin: string;
     thumbnailsScrollerLeftMargin: string;
-    readonly activeImage: GALLERY_IMAGE;
-    readonly onFirstImage: boolean;
-    readonly onLastImage: boolean;
-    readonly thumbnailsRenderParams: {
+    get activeImage(): GALLERY_IMAGE;
+    get onFirstImage(): boolean;
+    get onLastImage(): boolean;
+    get thumbnailsRenderParams(): {
         thumbnailsInView: number;
         newThumbnailMargin: number;
         newThumbnailSize: number;
         thumbnailsScrollerLeftMargin: any;
     };
-    private setGalleryConf(conf);
-    private loadImage(index);
-    private activateImage(imageIndex);
+    private setGalleryConf;
+    private loadImage;
+    private activateImage;
     private fitThumbnails;
-    private scrollThumbnails();
+    private scrollThumbnails;
     private debouncedPrev;
     private debouncedNext;
     /***************************************************/
