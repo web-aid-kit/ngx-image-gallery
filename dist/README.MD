@@ -1,3 +1,8 @@
+# Need maintainers
+Due to my hectic schedule, it is getting hard to maintain this repository. If anybody is interested to work on this project, please give a pull request to fix some critical issues and enhancements.
+
+---
+
 # ngx-image-gallery
 Probably the best Angular 4+ modal and inline image gallery. Angular upgrade for ng-image-gallery.
 
@@ -130,12 +135,12 @@ export class AppComponent implements OnInit {
 	
   // next image in gallery
   nextImage(index: number = 0) {
-    this.ngxImageGallery.next(index);
+    this.ngxImageGallery.next();
   }
 	
   // prev image in gallery
   prevImage(index: number = 0) {
-    this.ngxImageGallery.prev(index);
+    this.ngxImageGallery.prev();
   }
 	
   /**************************************************/

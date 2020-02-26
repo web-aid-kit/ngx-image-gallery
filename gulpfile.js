@@ -7,6 +7,7 @@ var gulp = require('gulp'),
   del = require('del'),
   runSequence = require('run-sequence'),
   inlineResources = require('./tools/gulp/inline-resources');
+  ngFsUtils = require('@angular/compiler-cli/src/ngtsc/file_system');
 
 const rootFolder = path.join(__dirname);
 const srcFolder = path.join(rootFolder, 'src');
@@ -49,16 +50,11 @@ gulp.task('inline-resources', function () {
  *    compiled modules to the /build folder.
  */
 gulp.task('ngc', function () {
-  return ngc({
-    project: `${tmpFolder}/tsconfig.es5.json`
-  })
-    .then((exitCode) => {
-      if (exitCode === 1) {
-        // This error is caught in the 'compile' task by the runSequence method callback
-        // so that when ngc fails to compile, the whole compile process stops running
-        throw new Error('ngc compilation failed');
-      }
-    });
+  ngFsUtils.setFileSystem(new ngFsUtils.NodeJSFileSystem());
+  ngc([
+    '--project', `${tmpFolder}/tsconfig.es5.json`
+  ]);
+  return Promise.resolve();
 });
 
 /**
@@ -89,7 +85,7 @@ gulp.task('rollup:fesm', function () {
 
       // Format of generated bundle
       // See "format" in https://rollupjs.org/#core-functionality
-      format: 'es'
+      'format': 'es'
     }))
     .pipe(gulp.dest(distFolder));
 });
@@ -122,7 +118,7 @@ gulp.task('rollup:umd', function () {
 
       // Format of generated bundle
       // See "format" in https://rollupjs.org/#core-functionality
-      format: 'umd',
+      'format': 'umd',
 
       // Export mode to use
       // See "exports" in https://rollupjs.org/#danger-zone
@@ -183,8 +179,7 @@ gulp.task('clean:build', function () {
   return deleteFolders([buildFolder]);
 });
 
-gulp.task('compile', function () {
-  runSequence(
+gulp.task('compile', gulp.series(
     'clean:dist',
     'copy:source',
     'inline-resources',
@@ -195,16 +190,8 @@ gulp.task('compile', function () {
     'copy:manifest',
     'copy:readme',
     'clean:build',
-    'clean:tmp',
-    function (err) {
-      if (err) {
-        console.log('ERROR:', err.message);
-        deleteFolders([distFolder, tmpFolder, buildFolder]);
-      } else {
-        console.log('Compilation finished succesfully');
-      }
-    });
-});
+    'clean:tmp')
+);
 
 /**
  * Watch for any change in the /src folder and compile files
@@ -213,11 +200,11 @@ gulp.task('watch', function () {
   gulp.watch(`${srcFolder}/**/*`, ['compile']);
 });
 
-gulp.task('clean', ['clean:dist', 'clean:tmp', 'clean:build']);
+gulp.task('clean', gulp.series('clean:dist', 'clean:tmp', 'clean:build'));
 
-gulp.task('build', ['clean', 'compile']);
-gulp.task('build:watch', ['build', 'watch']);
-gulp.task('default', ['build:watch']);
+gulp.task('build', gulp.series('clean', 'compile'));
+gulp.task('build:watch', gulp.series('build', 'watch'));
+gulp.task('default', gulp.series('build:watch'));
 
 /**
  * Deletes the specified folder
