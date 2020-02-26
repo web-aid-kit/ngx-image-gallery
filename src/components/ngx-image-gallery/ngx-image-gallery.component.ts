@@ -67,6 +67,7 @@ export class NgxImageGalleryComponent implements OnInit, OnChanges {
     @Output() onDelete = new EventEmitter();
     @Output() onImageChange = new EventEmitter();
     @Output() onImageClicked = new EventEmitter();
+    @Output() onError = new EventEmitter();
 
     // thumbnails container
     @ViewChild('thumbnails') thumbnailsElem: ElementRef;
@@ -188,7 +189,10 @@ export class NgxImageGalleryComponent implements OnInit, OnChanges {
                     setTimeout(() => this.scrollThumbnails(), 300);
                 });
             })
-            .catch(error => console.warn(error));
+            .catch(error => { 
+                console.warn(error)
+                this.onError.next(error);
+            });
     }
 
     // adjust thumbnail margin to perfectly fit viewport
