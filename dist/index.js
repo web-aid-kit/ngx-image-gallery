@@ -54,6 +54,7 @@ var NgxImageGalleryComponent = /** @class */ (function () {
         this.onDelete = new EventEmitter();
         this.onImageChange = new EventEmitter();
         this.onImageClicked = new EventEmitter();
+        this.onError = new EventEmitter();
         /**
          * ***********************************************
          */
@@ -290,7 +291,10 @@ var NgxImageGalleryComponent = /** @class */ (function () {
          * @param {?} error
          * @return {?}
          */
-        function (error) { return console.warn(error); }));
+        function (error) {
+            console.warn(error);
+            _this.onError.next(error);
+        }));
     };
     // scroll thumbnails to perfectly position active image thumbnail in viewport
     // scroll thumbnails to perfectly position active image thumbnail in viewport
@@ -590,6 +594,7 @@ var NgxImageGalleryComponent = /** @class */ (function () {
         onDelete: [{ type: Output }],
         onImageChange: [{ type: Output }],
         onImageClicked: [{ type: Output }],
+        onError: [{ type: Output }],
         thumbnailsElem: [{ type: ViewChild, args: ['thumbnails',] }],
         onKeyboardInput: [{ type: HostListener, args: ['window:keydown', ['$event'],] }],
         onWindowResize: [{ type: HostListener, args: ['window:resize', ['$event'],] }]

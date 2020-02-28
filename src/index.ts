@@ -11,7 +11,6 @@ export * from './directives/click-outside.directive';
 export * from './directives/mousewheel.directive';
 export * from './ngx-image-gallery.conf';
 
-
 @NgModule({
     imports: [
         CommonModule
