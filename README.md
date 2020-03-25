@@ -221,12 +221,3 @@ this.images = this.images.concat([...]);
 // change conf
 this.conf = {...};
 ```
-
-# Demo App
-![Demo App's Screenshot](./assets/screenshot_demo_app.png)
-+ clone or fork this repo
-+ run the demo app by running `npm run demo`
-+ Finally, navigate to `http://localhost:4200/`
-
-# Copyrights
-Integrate or build upon it for free in your personal or commercial projects. Don't republish, redistribute or sell "as-is". We would appreciate if you contact us at `thatisuday@gmail.com` (if you are a business, institution or organization) so that we can mention your name in **users list** on this page.
