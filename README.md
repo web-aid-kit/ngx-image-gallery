@@ -17,7 +17,7 @@ Probably the best Angular 4+ modal and inline image gallery. Angular upgrade for
 
 - Hammerjs (required for swipe) 
 ```
-npm i -s hammerjs
+npm i -S hammerjs lodash
 ```
 
 Then import hammerjs into your project (tip: in you main.ts file), e.g:
