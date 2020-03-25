@@ -1,6 +1,6 @@
 {
   "name": "ngx-image-gallery",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Probably the best Angular 4+ modal & inline image gallery. Angular upgrade for ng-image-gallery.",
   "scripts": {
     "build": "gulp build && ngcc && ngcc -s dist/",
@@ -16,7 +16,8 @@
     "install:demo": "cd demo-app && npm install",
     "serve": "cd demo-app && ng serve --open",
     "demo": "npm run install:demo && npm run serve",
-    "test": "tsc && karma start"
+    "test": "tsc && karma start",
+    "prepublishOnly": "node --eval \"console.error('ERROR: Trying to publish a package that has been compiled by NGCC. This is not allowed.\\nPlease delete and rebuild the package, without compiling with NGCC, before attempting to publish.\\nNote that NGCC may have been run by importing this package into another project that is being built with Ivy enabled.\\n')\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -80,11 +81,16 @@
     "node": ">=6.0.0"
   },
   "main": "dist/ngx-image-gallery.umd.js",
+  "module_ivy_ngcc": "__ivy_ngcc__/dist/ngx-image-gallery.js",
   "module": "dist/ngx-image-gallery.js",
   "jsnext:main": "dist/ngx-image-gallery.js",
   "typings": "dist/ngx-image-gallery.d.ts",
   "dependencies": {
     "hammerjs": "^2.0.8",
     "lodash": "^4.17.15"
+  },
+  "__processed_by_ivy_ngcc__": {
+    "module": "9.0.7",
+    "typings": "9.0.7"
   }
 }

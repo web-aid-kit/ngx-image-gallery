@@ -1,6 +1,7 @@
 import { OnInit, ElementRef, Renderer2, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { GALLERY_CONF, GALLERY_IMAGE } from '../../ngx-image-gallery.conf';
 import { DomSanitizer } from '@angular/platform-browser';
+import * as ɵngcc0 from '@angular/core';
 export declare class NgxImageGalleryComponent implements OnInit, OnChanges {
     private galleryElem;
     private sanitizer;
@@ -53,4 +54,18 @@ export declare class NgxImageGalleryComponent implements OnInit, OnChanges {
     mouseWheelDown(): void;
     clickOnImage(index: number): void;
     rightClickOnImage(event: Event): boolean;
+    static ɵfac: ɵngcc0.ɵɵFactoryDef<NgxImageGalleryComponent>;
+    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<NgxImageGalleryComponent, "ngx-image-gallery", never, {
+    "conf": "conf";
+    "images": "images";
+}, {
+    "onOpen": "onOpen";
+    "onClose": "onClose";
+    "onDelete": "onDelete";
+    "onImageChange": "onImageChange";
+    "onImageClicked": "onImageClicked";
+    "onError": "onError";
+}, never>;
 }
+
+//# sourceMappingURL=ngx-image-gallery.component.d.ts.map
