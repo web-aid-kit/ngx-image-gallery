@@ -1,7 +1,6 @@
 import { __decorate } from 'tslib';
 import { EventEmitter, ElementRef, Renderer2, HostBinding, Input, Output, ViewChild, HostListener, Component, Directive, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import 'hammerjs';
 import { debounce, assign } from 'lodash';
 import { DomSanitizer } from '@angular/platform-browser';
 
