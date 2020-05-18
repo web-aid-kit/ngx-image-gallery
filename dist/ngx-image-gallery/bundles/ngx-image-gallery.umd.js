@@ -31,11 +31,12 @@
     };
     var NgxImageGalleryComponent = /** @class */ (function () {
         /***************************************************/
-        function NgxImageGalleryComponent(sanitizer, galleryElem, renderer) {
+        function NgxImageGalleryComponent(sanitizer, galleryElem, renderer, cdRef) {
             var _this = this;
             this.sanitizer = sanitizer;
             this.galleryElem = galleryElem;
             this.renderer = renderer;
+            this.cdRef = cdRef;
             // gallery opened memory
             this.opened = false;
             // gallery configuration
@@ -169,6 +170,8 @@
             this.loadImage(imageIndex)
                 .then(function (_imageIndex) {
                 _this.activeImageIndex = _imageIndex;
+                // Trigger change detection manually to support ChangeDetectionStrategy.OnPush
+                _this.cdRef.detectChanges();
                 // scroll thumbnails
                 setTimeout(function () {
                     _this.fitThumbnails();
@@ -307,7 +310,8 @@
         NgxImageGalleryComponent.ctorParameters = function () { return [
             { type: platformBrowser.DomSanitizer },
             { type: core.ElementRef },
-            { type: core.Renderer2 }
+            { type: core.Renderer2 },
+            { type: core.ChangeDetectorRef }
         ]; };
         tslib.__decorate([
             core.HostBinding('class.active')

@@ -1,5 +1,5 @@
 import { __decorate } from 'tslib';
-import { EventEmitter, ElementRef, Renderer2, HostBinding, Input, Output, ViewChild, HostListener, Component, Directive, NgModule } from '@angular/core';
+import { EventEmitter, ElementRef, Renderer2, ChangeDetectorRef, HostBinding, Input, Output, ViewChild, HostListener, Component, Directive, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { debounce, assign } from 'lodash';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -31,11 +31,12 @@ var DEFAULT_CONF = {
 };
 var NgxImageGalleryComponent = /** @class */ (function () {
     /***************************************************/
-    function NgxImageGalleryComponent(sanitizer, galleryElem, renderer) {
+    function NgxImageGalleryComponent(sanitizer, galleryElem, renderer, cdRef) {
         var _this = this;
         this.sanitizer = sanitizer;
         this.galleryElem = galleryElem;
         this.renderer = renderer;
+        this.cdRef = cdRef;
         // gallery opened memory
         this.opened = false;
         // gallery configuration
@@ -169,6 +170,8 @@ var NgxImageGalleryComponent = /** @class */ (function () {
         this.loadImage(imageIndex)
             .then(function (_imageIndex) {
             _this.activeImageIndex = _imageIndex;
+            // Trigger change detection manually to support ChangeDetectionStrategy.OnPush
+            _this.cdRef.detectChanges();
             // scroll thumbnails
             setTimeout(function () {
                 _this.fitThumbnails();
@@ -307,7 +310,8 @@ var NgxImageGalleryComponent = /** @class */ (function () {
     NgxImageGalleryComponent.ctorParameters = function () { return [
         { type: DomSanitizer },
         { type: ElementRef },
-        { type: Renderer2 }
+        { type: Renderer2 },
+        { type: ChangeDetectorRef }
     ]; };
     __decorate([
         HostBinding('class.active')

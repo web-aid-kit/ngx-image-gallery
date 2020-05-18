@@ -1,10 +1,11 @@
-import { OnInit, ElementRef, Renderer2, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { OnInit, ElementRef, Renderer2, EventEmitter, OnChanges, SimpleChanges, ChangeDetectorRef } from '@angular/core';
 import { GALLERY_CONF, GALLERY_IMAGE } from '../../ngx-image-gallery.conf';
 import { DomSanitizer } from '@angular/platform-browser';
 export declare class NgxImageGalleryComponent implements OnInit, OnChanges {
     sanitizer: DomSanitizer;
     private galleryElem;
     private renderer;
+    private cdRef;
     opened: boolean;
     conf: GALLERY_CONF;
     images: GALLERY_IMAGE[];
@@ -37,7 +38,7 @@ export declare class NgxImageGalleryComponent implements OnInit, OnChanges {
     private debouncedPrev;
     private debouncedNext;
     /***************************************************/
-    constructor(sanitizer: DomSanitizer, galleryElem: ElementRef, renderer: Renderer2);
+    constructor(sanitizer: DomSanitizer, galleryElem: ElementRef, renderer: Renderer2, cdRef: ChangeDetectorRef);
     ngOnInit(): void;
     ngOnChanges(changes: SimpleChanges): void;
     onKeyboardInput(event: KeyboardEvent): void;
