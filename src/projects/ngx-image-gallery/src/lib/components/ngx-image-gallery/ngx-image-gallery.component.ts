@@ -10,7 +10,8 @@ import {
     Output,
     OnChanges,
     SimpleChanges,
-    ViewChild
+    ViewChild,
+    ChangeDetectorRef
 } from '@angular/core';
 
 import {assign, debounce} from 'lodash';
@@ -181,6 +182,8 @@ export class NgxImageGalleryComponent implements OnInit, OnChanges {
         this.loadImage(imageIndex)
             .then(_imageIndex => {
                 this.activeImageIndex = _imageIndex;
+                // Trigger change detection manually to support ChangeDetectionStrategy.OnPush
+                this.cdRef.detectChanges();
 
                 // scroll thumbnails
                 setTimeout(() => {
@@ -188,7 +191,7 @@ export class NgxImageGalleryComponent implements OnInit, OnChanges {
                     setTimeout(() => this.scrollThumbnails(), 300);
                 });
             })
-            .catch(error => { 
+            .catch(error => {
                 console.warn(error)
                 this.onError.next(error);
             });
@@ -223,7 +226,8 @@ export class NgxImageGalleryComponent implements OnInit, OnChanges {
     constructor(
         public sanitizer: DomSanitizer,
         private galleryElem: ElementRef,
-        private renderer: Renderer2
+        private renderer: Renderer2,
+        private cdRef: ChangeDetectorRef
     ) {}
 
     ngOnInit() {
@@ -265,7 +269,7 @@ export class NgxImageGalleryComponent implements OnInit, OnChanges {
         }
 
     }
-    
+
     // keyboard event
     @HostListener('window:keydown', ['$event'])
     public onKeyboardInput(event: KeyboardEvent) {
