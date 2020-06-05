@@ -1,12 +1,10 @@
-# Need maintainers
-Due to my hectic schedule, it is getting hard to maintain this repository. If anybody is interested to work on this project, please give a pull request to fix some critical issues and enhancements.
-
+# This project is no longer maintained. Please consider other image galleries.
 ---
 
 # ngx-image-gallery
 Probably the best Angular 4+ modal and inline image gallery. Angular upgrade for ng-image-gallery.
 
-[![preview](https://i.imgur.com/1gGxBLd.jpg)](https://thatisuday.github.io)
+![preview](https://i.imgur.com/1gGxBLd.jpg)
 
 [![npm](https://img.shields.io/npm/dt/ngx-image-gallery.svg?style=flat-square)](https://www.npmjs.com/package/ngx-image-gallery)
 [![npm](https://img.shields.io/npm/v/ngx-image-gallery.svg?style=flat-square)](https://www.npmjs.com/package/ngx-image-gallery)
