@@ -43,12 +43,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ## Install
 ```bash
-npm install --save ngx-image-gallery
+npm install --save @web-aid-kit/ngx-image-gallery
 ```
 
 ## Import
 ```typescript
-import { NgxImageGalleryModule } from 'ngx-image-gallery';
+import { NgxImageGalleryModule } from '@web-aid-kit/ngx-image-gallery';
 
 @NgModule({
   ...,
@@ -79,7 +79,7 @@ export class AppModule { }
 ## Configure
 ```ts
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgxImageGalleryComponent, GALLERY_IMAGE, GALLERY_CONF } from "ngx-image-gallery";
+import { NgxImageGalleryComponent, GALLERY_IMAGE, GALLERY_CONF } from '@web-aid-kit/ngx-image-gallery';
 
 @Component({
   selector: 'app-root',

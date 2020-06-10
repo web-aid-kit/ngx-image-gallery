@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "ngx-image-gallery",
+  "name": "@web-aid-kit/ngx-image-gallery",
   "version": "0.0.0",
   "scripts": {
     "build": "ng build ngx-image-gallery --prod",
